@@ -68,6 +68,7 @@ Loop over folders and start the slurm script for each sample, using lyrata as ex
 ```bash
 for i in *[0-9]-Al-*; 
 do echo $i; 
+cp star_lyrata.slurm $i;
 cd $i; 
 sbatch star_lyrata.slurm *_R1_* *_R2_*; 
 cd ..; 
