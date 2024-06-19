@@ -9,7 +9,7 @@ mkdir $i;
 mv $i* $i; done
 ```
 
-# Mapping RNA seq using star, example for one sample
+# Mapping RNA seq using star, example for 
 
 ```bash
 #!/bin/sh
@@ -34,7 +34,6 @@ echo ""
 module purge
 module load STAR/2.7.11a-GCC-12.3.0
 
-# GENOME=/cluster/work/users/anderkkr/140_virvar/03_combinded_genome_index/PkVRF01-He028_jgi_star
 GENOME=/cluster/projects/nn9525k/ida/star_db/Arabidopsis_arenosa
 OUT=arenosa_
 STR=$(pwd | sed 's/.*\///')
