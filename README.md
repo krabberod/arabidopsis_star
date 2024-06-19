@@ -16,11 +16,9 @@ mv $i* $i; done
 #SBATCH --job-name=star
 #SBATCH --account=nn9525k
 #SBATCH --output=slurm-%j.base
-##SBATCH --nodes=1
 #SBATCH --cpus-per-task=16
 #SBATCH --time=15:00:00
 #SBATCH --mem-per-cpu=6G
-##SBATCH --partition=bigmem
 
 set -o errexit
 set -o nounset
@@ -63,4 +61,15 @@ echo "Running time:"
 #echo "#     $(($(date +%si)-$START)) seconds"
 printf '%dd:%dh:%02dm:%02ds\n' $(($secs/86400)) $(($secs%86400/3600)) $(($secs%3600/60)) $(($secs%60))
 echo "######################"
+```
+
+Loop over folders and start the slurm script for each sample, using lyrata as example.
+
+```bash
+for i in *[0-9]-Al-*; 
+do echo $i; 
+cd $i; 
+sbatch star_lyrata.slurm *_R1_* *_R2_*; 
+cd ..; 
+done
 ```
